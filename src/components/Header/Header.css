@@ -1,0 +1,28 @@
+.header {
+    width: 100%;
+    background-color: #2196F3;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+}
+
+.header__wrap {
+    display: flex;
+    margin: 0 64px;
+
+}
+
+.header__links {
+    padding: 23px;
+}
+
+.header__links:hover {
+    background-color: #1E88E5;
+}
+
+.header__links-text {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
