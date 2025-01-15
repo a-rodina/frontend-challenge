@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cardReducer from '../slice/cards';
+import catReducer from '../slice/cats';
 
 const rootReducer = {
-    card: cardReducer,
+    cat: catReducer,
 }
 
 const store = configureStore({
