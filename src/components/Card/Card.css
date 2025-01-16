@@ -5,6 +5,10 @@
     position: relative;
 }
 
+.card__wrap:hover .card__about-block-icon {
+    display: block;
+}
+
 .card__wrap:hover {
     transform: scale(1.1);
     box-shadow: 3px 5px 10px 0px #5e5c5c;
@@ -17,6 +21,10 @@
     object-fit: cover;
 }
 
+.card__about-block-icon {
+    display: none;
+}
+
 .my-icon {
     position: absolute;
     bottom: 10px;
@@ -25,3 +33,17 @@
     font-size: 40px;
     color: #F24E1E;
 }
+
+@media (max-width: 782px) {
+    .card__wrap {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 370px) {
+    .card__wrap {
+        width: 100%;
+    }
+}
+

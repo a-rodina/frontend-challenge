@@ -4,7 +4,7 @@ export const getCats = createAsyncThunk(
     "cats/getCats", 
     async function (_, {rejectWithValue}) {
         try {
-            const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
+            const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=50&api_key=live_dyEPkrZDyuBFVpCy0LjbCck4m0uwDNDz1MWmgu3cjTMKIwKrtnqApeIu0GU13VaT');
             if(!response.ok) {
                 throw new Error("Не удалось загрузить данные")
             }

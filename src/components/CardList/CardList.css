@@ -7,4 +7,23 @@
 
 .card-list__item {
     margin-bottom: 52px;
+    padding: 0 10px;
+}
+
+@media (max-width: 782px) {
+    .card-list__item {
+        margin-bottom: 32px;
+    }
+}
+
+@media (max-width: 687px) {
+    .card-list {
+        display: block;
+    }
+
+    .card-list__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }

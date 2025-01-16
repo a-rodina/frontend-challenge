@@ -1,5 +1,5 @@
 import './AllCats.css';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCats } from "../../slice/cats";
 import CardList from "../../components/CardList/CardList";
@@ -9,11 +9,10 @@ function AllCats() {
 
     const data = useSelector((state) => state.cat)
     const dispatch = useDispatch();
-    console.log(data.cats)
 
     useEffect(() => {
-        dispatch(getCats())
-    }, [])
+        dispatch(getCats());
+    }, []);
 
     return ( <>
         <section className='all-cats'>
