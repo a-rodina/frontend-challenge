@@ -14,9 +14,9 @@ function Card({cat, addToFavorites}) {
             }
         }
         if (index > -1) {
-            return <i className={`fa-solid fa-heart my-icon`}></i>
+            return <i className='fa-solid fa-heart my-icon'></i>
         } else {
-            return <i className={`fa-regular fa-heart my-icon`}></i>
+            return <i className='fa-regular fa-heart my-icon'></i>
         }
     }
 

@@ -17,11 +17,13 @@ export const getCats = createAsyncThunk(
     }
 )
 
+const items = localStorage.getItem('favorite') !== null ? JSON.parse(localStorage.getItem('favorite')) : []
+
 const catSlice = createSlice({
     name: 'cats',
     initialState: {
         cats: [],
-        favorites: [],
+        favorites: items,
         cat: null
     },
     reducers: {
@@ -37,6 +39,8 @@ const catSlice = createSlice({
             } else {
                 state.favorites.push(payload);
             }
+
+            localStorage.setItem('favorite', JSON.stringify(state.favorites.map(item => item)));
         },
     },
     extraReducers: (builder) => {
