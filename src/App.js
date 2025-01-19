@@ -8,7 +8,7 @@ import FavoriteCats from './pages/FavoriteCats/FavoriteCats';
 
 function App() {
   return (
-      <BrowserRouter>
+      <BrowserRouter basename='/frontend-challenge'>
         <Provider store={store}>
           <Header/>
           <Routes>
