@@ -12,8 +12,8 @@ function App() {
         <Provider store={store}>
           <Header/>
           <Routes>
-            <Route path='/' element={<AllCats/>}/>
-            <Route path='/favorite' element={<FavoriteCats/>}/>
+            <Route path='frontend-challenge/' element={<AllCats/>}/>
+            <Route path='frontend-challenge/favorite' element={<FavoriteCats/>}/>
           </Routes>
         </Provider>
       </BrowserRouter>
