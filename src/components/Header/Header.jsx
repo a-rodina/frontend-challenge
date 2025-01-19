@@ -7,12 +7,12 @@ function Header() {
         <header className='header'>
             <div className='container'>
                 <div className='header__wrap'>
-                    <Link to={`frontend-challenge/`}>
+                    <Link to={`/`}>
                         <div className='header__links'>
                             <span className='header__links-text'>Все котики</span>
                         </div>
                     </Link>
-                    <Link to={`frontend-challenge/favorite`}>
+                    <Link to={`/favorite`}>
                         <div className='header__links'>
                             <span className='header__links-text'>Любимые котики</span>
                         </div>
