@@ -4,7 +4,6 @@ import './Card.css';
 function Card({cat, addToFavorites}) {
 
     const data = useSelector((state) => state.cat);
-    console.log(data.cats)
 
     function getFavoriteIcon() {
         let index = -1;

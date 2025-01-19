@@ -1,7 +1,7 @@
 import './AllCats.css';
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCats } from "../../slice/cats";
+import { getCats, incrementPage } from "../../slice/cats";
 import CardList from "../../components/CardList/CardList";
 import Spinner from "../../components/Spinner/Spinner"
 
@@ -11,8 +11,18 @@ function AllCats() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCats());
-    }, []);
+        dispatch(getCats(data.page));
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [data.page]);
+
+    const handleScroll = () => {
+        if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) {
+            return;
+        }
+        dispatch(incrementPage())
+        dispatch(getCats(data.page));
+    };
 
     return ( <>
         <section className='all-cats'>

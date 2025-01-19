@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const getCats = createAsyncThunk(
     "cats/getCats", 
-    async function (_, {rejectWithValue}) {
+    async function (page, {rejectWithValue}) {
         try {
-            const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=50&api_key=live_dyEPkrZDyuBFVpCy0LjbCck4m0uwDNDz1MWmgu3cjTMKIwKrtnqApeIu0GU13VaT');
+            const response = await fetch(`https://api.thecatapi.com/v1/images/search?limit=20&page=${page}&api_key=live_dyEPkrZDyuBFVpCy0LjbCck4m0uwDNDz1MWmgu3cjTMKIwKrtnqApeIu0GU13VaT`);
             if(!response.ok) {
                 throw new Error("Не удалось загрузить данные")
             }
@@ -24,7 +24,8 @@ const catSlice = createSlice({
     initialState: {
         cats: [],
         favorites: items,
-        cat: null
+        cat: null,
+        page: 0
     },
     reducers: {
         addToFavoriteRedux(state, {payload}) {
@@ -42,6 +43,9 @@ const catSlice = createSlice({
 
             localStorage.setItem('favorite', JSON.stringify(state.favorites.map(item => item)));
         },
+        incrementPage(state) {
+            state.page += 1;
+        }
     },
     extraReducers: (builder) => {
         return builder.addCase(getCats.pending, (state) => {
@@ -51,7 +55,7 @@ const catSlice = createSlice({
         builder.addCase(getCats.fulfilled, (state, {payload}) => {
             state.status = 'resolved';
             state.error = null;
-            state.cats = payload;
+            state.cats = state.cats.concat(payload);
         }), 
         builder.addCase(getCats.rejected, (state, {payload}) => {
             state.status = 'rejected';
@@ -63,4 +67,4 @@ const catSlice = createSlice({
 const {actions, reducer} = catSlice;
 
 export default reducer;
-export const {addToFavoriteRedux} = actions;
+export const {addToFavoriteRedux, incrementPage} = actions;
